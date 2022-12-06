@@ -37,31 +37,41 @@ class WebConteudoResponsivoAppBar extends StatelessWidget {
                 ),
               ),
             ),
-            if(constraint.maxWidth >= 400)
-             SizedBox(
-               width: 32,
-               child: TextButton(
-                 onPressed: (){},
-                 child: Text("Aprender",),
-                 style: ButtonStyle(
-                   backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                 ),
-               ),
-             ),
-            if(constraint.maxWidth >= 500)
-              SizedBox(
-                width: 8,
-                child: TextButton(
-                  onPressed: (){},
-                  child: Text("Flutter",),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                  ),
-                ),
-              )
+            const SizedBox(width: 32,),
+            _retornarBotaoAprender(constraint),
+            const SizedBox(width: 8,),
+            _retornarBotaoflutter(constraint)
 
           ],
         );
       },));
+  }
+
+  Widget _retornarBotaoAprender(BoxConstraints constraints){
+    if(constraints.maxWidth > 400){
+      return TextButton(
+        onPressed: (){},
+        child: Text("Aprender",),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        ),
+      );
+    }else{
+      return Container();
+    }
+  }
+
+  Widget _retornarBotaoflutter(BoxConstraints constraints){
+    if(constraints.maxWidth > 500){
+      return TextButton(
+        onPressed: (){},
+        child: Text("Flutter",),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        ),
+      );
+    }else{
+      return Container();
+    }
   }
 }
