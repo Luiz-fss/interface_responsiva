@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interface_responsiva/breakpoints.dart';
 import 'package:interface_responsiva/pages/home/widgets/app-bar/app-bar-mobile.dart';
 import 'package:interface_responsiva/pages/home/widgets/app-bar/app-bar-web.dart';
 
@@ -10,18 +11,27 @@ class HomePage extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
           appBar: _retornarAppBar(constraints),
-        drawer: Drawer(),
+        drawer: _retornarDrawer(constraints),
       );
     });
   }
 
   PreferredSizeWidget _retornarAppBar(BoxConstraints constraints) {
-    if (constraints.maxWidth <= 800) {
+    if (constraints.maxWidth <= mobileBreakPoint) {
       //necessario por PreferedSize antes pois o MobileAppBar não é um widget direto do tipo app bar
       return const PreferredSize(
           preferredSize: Size(double.infinity, 56), child: MobileAppBar());
     } else {
       return PreferredSize(child: WebAppBar(), preferredSize: Size(double.infinity,72));
+    }
+  }
+
+  Widget _retornarDrawer(BoxConstraints constraints){
+    if (constraints.maxWidth <= mobileBreakPoint) {
+      //necessario por PreferedSize antes pois o MobileAppBar não é um widget direto do tipo app bar
+      return const Drawer();
+    } else {
+      return Container();
     }
   }
 }
