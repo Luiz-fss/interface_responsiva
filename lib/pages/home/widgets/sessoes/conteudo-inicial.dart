@@ -16,6 +16,10 @@ class ConteudoInicial extends StatelessWidget {
   _retornarConteudoPorDispositivo(BoxConstraints constraints){
     if(constraints.maxWidth >= tabletBreakPoint){
       return _retornarConteudoWeb();
+    }if(constraints.maxWidth >= mobileBreakPoint){
+      return _retornarConteudoTablet();
+    }else{
+      return _retornarConteudoMobile();
     }
   }
 
@@ -62,6 +66,61 @@ class ConteudoInicial extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                     SizedBox(height: 16,),
+                   CustomSearchField()
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _retornarConteudoTablet(){
+    return SizedBox(
+      height: 300,
+      child: Stack(
+        children: [
+          SizedBox(
+            child: Image.network(
+              "https://images.pexels.com/photos/892757/pexels-photo-892757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w940",
+              fit: BoxFit.cover,
+            ),
+            height: 250,
+            width: double.infinity,
+          ),
+          Positioned(
+            left: 20,
+            top: 30,
+            child: Card(
+              color: Colors.black,
+              elevation: 8,
+              child: Container(
+                padding: const EdgeInsets.all(32),
+                width: 350,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:  const [
+                    Text(
+                      "Aprenda Flutter com este curso",
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                    SizedBox(height: 8,),
+                    Text(
+                      "Aprenda Flutter com este curso",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                    SizedBox(height: 16,),
                     CustomSearchField()
                   ],
                 ),
@@ -70,6 +129,46 @@ class ConteudoInicial extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Widget  _retornarConteudoMobile(){
+    return Column(
+      children: [
+        AspectRatio(
+          aspectRatio: 3.4,
+          child: Image.network(
+            "https://images.pexels.com/photos/892757/pexels-photo-892757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w940",
+            fit: BoxFit.cover,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "Aprenda Flutter com este curso",
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                ),
+                textAlign: TextAlign.start,
+              ),
+              SizedBox(height: 8,),
+              Text(
+                "Aprenda Flutter com este curso",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.start,
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
