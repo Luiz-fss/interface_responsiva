@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interface_responsiva/breakpoints.dart';
+import 'package:interface_responsiva/pages/home/widgets/conteudo-curso.dart';
 
 class ListagemCursos extends StatelessWidget {
   const ListagemCursos({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class ListagemCursos extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         itemCount: 20,
         itemBuilder: (context,index){
-          return Container(color: Colors.red,);
+          return ConteudoCurso();
         },
         /*Detalhe importante: No caso de grid view, não é interessante se utilizar
       o layout builder para definir a quantidade de exibições da grid baseado no
@@ -32,7 +33,7 @@ class ListagemCursos extends StatelessWidget {
         gridDelegate:const SliverGridDelegateWithMaxCrossAxisExtent(
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
-            maxCrossAxisExtent: 300
+            maxCrossAxisExtent: 300,
         ),
         /*Possivel especificar quantos itens vai ter na horizontal
       * SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
@@ -53,4 +54,6 @@ class ListagemCursos extends StatelessWidget {
       return 16;
     }
   }
+
+
 }
