@@ -165,6 +165,8 @@ class ConteudoInicial extends StatelessWidget {
                 ),
                 textAlign: TextAlign.start,
               ),
+              SizedBox(height: 8,),
+              CustomSearchField()
             ],
           ),
         )
