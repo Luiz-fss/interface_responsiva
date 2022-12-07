@@ -3,6 +3,7 @@ import 'package:interface_responsiva/breakpoints.dart';
 import 'package:interface_responsiva/pages/home/widgets/app-bar/app-bar-mobile.dart';
 import 'package:interface_responsiva/pages/home/widgets/app-bar/app-bar-web.dart';
 import 'package:interface_responsiva/pages/home/widgets/sessoes/conteudo-inicial.dart';
+import 'package:interface_responsiva/pages/home/widgets/sessoes/listagem-cursos.dart';
 import 'package:interface_responsiva/pages/home/widgets/sessoes/vantagens.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,7 +25,8 @@ class HomePage extends StatelessWidget {
               child: ListView(
                 children: const [
                   ConteudoInicial(),
-                  Vantagens()
+                  Vantagens(),
+                  ListagemCursos()
                 ],
               ),
             ),
